@@ -1,8 +1,8 @@
 import express from 'express';
 
-import insertVoteRouter from './apiRoutes/voteInsert';
-import showVoteRouter from './apiRoutes/showVote';
-import selectVoteRouter from './apiRoutes/selected';
+import insertVoteRouter from './Middlewares/makeVote/voteInsert';
+import showVoteRouter from './Middlewares/showVote/showVote';
+import selectVoteRouter from './Middlewares/scoreResult/selected';
 import voteResultRouter from './apiRoutes/resultVote';
 
 const api = express();

@@ -1,22 +1,22 @@
-import Sequelize from 'sequelize'
+import Sequelize from 'sequelize';
 
 const vote = {
-    title: {
-        type: Sequelize.STRING,
-        allowNull:false
-    },
-    option1:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    option2:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    option3:{
-        type: Sequelize.STRING,
-        allowNull: true
-    }
+  qus: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  ans1: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  ans2: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  option3: {
+    type: Sequelize.STRING,
+    allowNull: true
+  }
 };
 
 

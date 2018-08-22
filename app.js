@@ -4,10 +4,11 @@ import Debug from 'debug';
 import express from 'express';
 import logger from 'morgan';
 import path from 'path';
+import cors from 'cors';
 // import favicon from 'serve-favicon';
 
+import './database/connection';
 import apiRouter from './routes/controller';
-import indexRouter from './routes/index';
 
 const app = express();
 const debug = Debug('vote:app');
@@ -22,12 +23,13 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use(cors());
+
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', apiRouter);
-app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
