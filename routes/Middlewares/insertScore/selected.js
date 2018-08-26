@@ -4,16 +4,15 @@ import sequelize from '../../../database/connection';
 
 const api = express();
 
-api.get('/vote/:url', (req, res) => {
-  sequelize.models.vote.find({
-    where: { url: req.params.url }
+api.post('/select/:url', (req, res) => {
+  sequelize.models.score.create({
+    checked: req.body.checked,
+    voteId: req.params.url
   })
     .then((result) => {
       console.log(result);
       res.json({
-        ques: result.ques,
-        ans1: result.ans1,
-        ans2: result.ans2
+        success: true
       });
     })
     .catch((err) => {

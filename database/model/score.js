@@ -5,7 +5,7 @@ const score = {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  selected: {
+  checked: {
     type: Sequelize.STRING,
     allowNull: false
   }
