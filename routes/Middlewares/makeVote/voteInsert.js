@@ -12,8 +12,18 @@ api.post('/votes', (req, res) => {
     ans2: req.body.ans2
   })
     .then((result) => {
+      if (result.ans1 === result.ans2) {
+        res.json({
+          success2: false
+        });
+      } else {
+        res.json({
+          success: true
+        });
+      }
       console.log('투표 만들기 성공');
       res.json({
+        success: true,
         ques: result.ques,
         url: result.url,
         ans1: result.ans1,
