@@ -9,18 +9,15 @@ api.post('/votes', (req, res) => {
     ques: req.body.ques,
     url: req.body.url,
     ans1: req.body.ans1,
-    ans2: req.body.ans2
+    ans2: req.body.ans2,
+    ans3: req.body.ans3,
+	  ans4: req.body.ans4, 
+	  ans5: req.body.ans5,
+	  ans6: req.body.ans6,
+	  ans7: req.body.ans7,
+	  ans8: req.body.ans8,
   })
     .then((result) => {
-      if (result.ans1 === result.ans2) {
-        res.json({
-          success2: false
-        });
-      } else {
-        res.json({
-          success: true
-        });
-      }
       console.log('투표 만들기 성공');
       res.json({
         success: true,
