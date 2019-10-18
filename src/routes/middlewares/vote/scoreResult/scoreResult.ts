@@ -15,6 +15,9 @@ const ScoreResult = async(req: Request, res: Response, next: NextFunction) => {
         });
 
         const result = await Opt.findAndCountAll({
+            where: {
+                voteId: req.params.url
+            },
             include: [
                 { model: Score }
             ]
