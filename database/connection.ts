@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
 console.log(__dirname + '/models/*.model.ts');
 
 sequelize.addModels([__dirname + '/models/*.model.ts']);
-sequelize.sync({force: true}).then(() => {
+sequelize.sync({force: false}).then(() => {
     console.log("DB 연결 성공");
 }).catch((err) => {
     if(err) console.error(err);

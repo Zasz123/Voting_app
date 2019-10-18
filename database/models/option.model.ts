@@ -1,6 +1,7 @@
-import { Table, DataType, Model, PrimaryKey, Column, AllowNull, AutoIncrement, BelongsTo, ForeignKey } from 'sequelize-typescript';
+import { Table, DataType, Model, PrimaryKey, Column, AllowNull, AutoIncrement, BelongsTo, ForeignKey, HasMany } from 'sequelize-typescript';
 
 import Vote from './vote.model';
+import Score from './score.model';
 
 @Table({
     timestamps: true
@@ -23,8 +24,12 @@ export default class Option extends Model<Option> {
     opt: string
 
     //Relationship
+    @HasMany(() => Score)
+    score: Score[]
+
     @BelongsTo(() => Vote, {
         onDelete: 'CASCADE'
     })
     vote: Vote
+
 }

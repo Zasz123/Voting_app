@@ -8,7 +8,7 @@ const AddScore = (req: Request, res: Response, next: NextFunction) => {
 
         Score.create({
             voteId: req.params.url,
-            checked: req.body.checked
+            optId: req.body.checked
         });
 
         res.json({

@@ -11,13 +11,27 @@ const ScoreResult = async(req: Request, res: Response, next: NextFunction) => {
         const vote = await Vote.findOne({
             include: [
                 { model: Opt },
-                { model: Score }
             ]
         });
 
+        const result = await Opt.findAndCountAll({
+            include: [
+                { model: Score }
+            ]
+        })
+
+        let scores = new Array;
+
+        for(let i in result.rows) {
+            let keys = result.rows[i].opt;
+            let value = result.rows[i].score.length;
+            scores.push({key : keys, value : value})
+        }
+
         res.json({
             success: true,
-            vote
+            vote,
+            scoers: scores
         });
 
     } catch(error) {

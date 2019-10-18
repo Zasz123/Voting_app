@@ -24,5 +24,5 @@ export default class Vote extends Model<Vote> {
     score: Score[]
 
     @HasMany(() => Opt)
-    options: Opt[]
+    opt: Opt[]
 }
